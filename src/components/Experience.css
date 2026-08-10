@@ -1,0 +1,153 @@
+.timeline {
+  position: relative;
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding-left: 34px;
+}
+
+/* The rail, fading out at the bottom of the last role. */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  bottom: 8px;
+  left: 6px;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent),
+    var(--border) 42%,
+    transparent
+  );
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-marker {
+  position: absolute;
+  top: 26px;
+  left: -34px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--border-strong);
+  transition: border-color 0.3s var(--ease);
+}
+
+.timeline-marker.is-current {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 0 5px var(--accent-soft);
+}
+
+.timeline-item:hover .timeline-marker {
+  border-color: var(--accent);
+}
+
+/* ---------- card ---------- */
+
+.timeline-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 20px;
+}
+
+.timeline-role {
+  font-size: clamp(1.1rem, 1.9vw, 1.32rem);
+}
+
+.timeline-company {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  color: var(--accent);
+  font-weight: 500;
+  font-size: 0.97rem;
+}
+
+.timeline-badge {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.timeline-period {
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  white-space: nowrap;
+}
+
+.timeline-summary {
+  margin-top: 16px;
+  color: var(--text);
+  font-size: 1rem;
+  text-wrap: pretty;
+}
+
+.timeline-highlights {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.timeline-highlights li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text-muted);
+  font-size: 0.945rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.timeline-highlights li::before {
+  content: '';
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  width: 7px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: var(--accent);
+  opacity: 0.75;
+}
+
+.timeline-stack {
+  margin-top: 22px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 560px) {
+  .timeline {
+    padding-left: 24px;
+  }
+
+  .timeline::before {
+    left: 3px;
+  }
+
+  .timeline-marker {
+    left: -24px;
+    top: 24px;
+    width: 9px;
+    height: 9px;
+  }
+
+  .timeline-period {
+    font-size: 11.5px;
+  }
+}

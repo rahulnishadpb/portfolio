@@ -1,10 +1,50 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <title>Rahul Nishad — Full-stack &amp; React Native Engineer</title>
+    <meta
+      name="description"
+      content="Rahul Nishad is a software engineer building React Native and full-stack web products — currently SDE 2 at Policybazaar, shipping the UAE iOS and Android apps."
+    />
+    <meta name="author" content="Rahul Nishad" />
+    <meta name="theme-color" content="#08090e" />
+
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Rahul Nishad — Full-stack &amp; React Native Engineer"
+    />
+    <meta
+      property="og:description"
+      content="5 years shipping mobile and web products to hundreds of thousands of users. Currently SDE 2 at Policybazaar."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400..700&family=JetBrains+Mono:wght@400..500&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Apply the stored theme before first paint so there's no flash of the
+      // wrong palette. useTheme() takes over from here.
+      try {
+        const stored = localStorage.getItem('portfolio-theme')
+        document.documentElement.dataset.theme =
+          stored ||
+          (matchMedia('(prefers-color-scheme: light)').matches
+            ? 'light'
+            : 'dark')
+      } catch {
+        /* private mode — keep the dark default already on <html> */
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

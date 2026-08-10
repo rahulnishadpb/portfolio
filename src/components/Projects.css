@@ -1,0 +1,99 @@
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 14px;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: clamp(24px, 3vw, 34px);
+}
+
+.project:hover {
+  transform: translateY(-3px);
+}
+
+.project-glow {
+  position: absolute;
+  top: -90px;
+  left: -40px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  filter: blur(20px);
+  opacity: 0.14;
+  pointer-events: none;
+  transition: opacity 0.4s var(--ease), transform 0.5s var(--ease);
+}
+
+.project:hover .project-glow {
+  opacity: 0.26;
+  transform: translate3d(18px, 12px, 0);
+}
+
+.accent-violet .project-glow {
+  background: radial-gradient(circle, var(--accent), transparent 68%);
+}
+
+.accent-cyan .project-glow {
+  background: radial-gradient(circle, var(--accent-2), transparent 68%);
+}
+
+.project-index {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.project-name {
+  position: relative;
+  margin-top: 14px;
+  font-size: clamp(1.25rem, 2.4vw, 1.55rem);
+  text-wrap: balance;
+}
+
+.project-blurb {
+  position: relative;
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: 0.97rem;
+  text-wrap: pretty;
+}
+
+.project-stack {
+  position: relative;
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+/* ---------- footer link ---------- */
+
+.projects-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 26px;
+  padding: 12px 20px;
+  border: 1px dashed var(--border-strong);
+  border-radius: 999px;
+  color: var(--text-muted);
+  font-size: 0.94rem;
+  font-weight: 500;
+  transition: color 0.25s var(--ease), border-color 0.25s var(--ease),
+    gap 0.25s var(--ease);
+}
+
+.projects-link:hover {
+  color: var(--text);
+  border-color: var(--accent);
+  gap: 15px;
+}
+
+.projects-link svg {
+  width: 17px;
+  height: 17px;
+}
